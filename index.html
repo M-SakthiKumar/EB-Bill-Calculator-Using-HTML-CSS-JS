@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EB Bill Calculator </title>
+    <link rel="icon" href="./assets/logo.jfif">
+    <style>
+        body {
+           /* background: linear-gradient(to bottom , #1a2a6c,#b21f1f,#fdbb2d)no-repeat; */
+            background: url(./assets/ebb.jpg)   no-repeat   ;
+            
+            background-size:cover ;
+        
+        }
+
+        .div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            background-color: rgba(255, 255, 255, 0.5);
+           
+            background-size: cover;
+            width: 330px;
+            height: 300px;
+            border: 2px solid rgba(49, 47, 47, 0.445);
+            border-radius: 10px;
+            margin: 100px 0 auto;
+            box-shadow: 5PX 8PX 3PX rgba(0, 0, 0, 0.2);
+
+
+
+        }
+
+        .para {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            font-weight: bolder;
+            text-align: center;
+            color: black;
+        }
+
+        .head,
+        .head1 {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 10px 70px;
+        }
+
+        input {
+            width: 170px;
+            height: 20px;
+            margin: 10px 70px;
+            /* padding-left: 20px; */
+            border: 2px solid rgba(49, 47, 47, 0.445);
+            border-radius: 5px;
+
+
+
+        }
+
+        button {
+            width: 200px;
+            height: 30px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 15px;
+            margin: 10px 70px;
+            cursor: pointer;
+
+
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .answ {
+            display: flex;
+        }
+
+        #button2 {
+            margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class="main">
+            <p class="para">EB BILL CALCULATOR</p>
+            <p class="head">Enter the Readings:</p>
+            <input id="num1" type="number" placeholder="Enter the Readings">
+            <div class="answ"> <button onclick="cal()">Calculate</button>
+                <button id="button2" onclick="reset()">Reset</button>
+            </div>
+            <div class="ans">
+                <p class="head">  <span id="demo"> </span> </p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+        function cal() {
+            var ebr, value
+            ebr = parseInt(document.getElementById("num1").value)
+            value
+            if (ebr >= 0 && ebr <= 100) {
+
+                value =`Your Electricity Bill: ₹${ebr * 0}` 
+            }
+            else if (ebr >= 101 && ebr <= 200) {
+                value = `Your Electricity Bill: ₹${0+(ebr - 100) * 2.25}`;
+            }
+            else if (ebr >= 201 && ebr <= 400) {
+                value = `Your Electricity Bill: ₹${225+(ebr-200)* 4.5}`;
+            }
+            else if (ebr >= 401 && ebr <= 500) {
+                value = `Your Electricity Bill: ₹${1125+(ebr-400) * 6.0}`;
+            }
+            else if (ebr >= 501 && ebr <= 600) {
+                value =`Your Electricity Bill: ₹${(ebr-100) * 8.0}`;
+            }
+            else if (ebr >= 601 && ebr <= 800) {
+                value =`Your Electricity Bill: ₹${(ebr-200) * 9.0}`;
+            }
+            else if (ebr >= 801 && ebr <= 1000) {
+                value =`Your Electricity Bill: ₹${(ebr-400) * 10.0}`;
+            }
+            else if (ebr >= 1001) {
+                value = `Your Electricity Bill: ₹${(ebr-600) * 11.0}`;
+            }
+            else  {
+                value = alert(` ${" Enter Your Reading Correctly"}`);
+            }
+
+            document.getElementById("demo").innerHTML = value
+
+
+
+        }
+
+        function reset() {
+
+            document.getElementById("num1").value = ""
+           document.getElementById("demo").innerHTML=""
+
+        }
+        reset()
+    </script>
+
+
+</body>
+
+</html>
